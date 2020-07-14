@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
-public class ShowAnimator: NavigationTransitionAnimator {
+open class ShowAnimator: NavigationTransitionAnimator {
 
     // MARK: - Init
     public init() {}
 
     // MARK: - NavigationTransitionAnimator
     public var auxAnimations: (Bool) -> [AuxAnimation] = { _ in [] }
-    public var duration: TimeInterval {
+    open var duration: TimeInterval {
         return 0.7
     }
     
@@ -36,7 +37,7 @@ public class ShowAnimator: NavigationTransitionAnimator {
         if presenting {
             let fromFrame = fromView.frame
             toView.frame = fromFrame
-            fromView.frame.offsetBy(dx: -fromFrame.size.width * 0.3, dy: 0)
+            fromView.frame = fromView.frame.offsetBy(dx: -fromFrame.size.width * 0.3, dy: 0)
         } else {
             let fromFrame = fromView.frame
             fromView.frame = fromFrame.offsetBy(dx: fromFrame.size.width,

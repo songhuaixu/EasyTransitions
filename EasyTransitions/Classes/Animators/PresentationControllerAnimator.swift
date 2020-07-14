@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
-public class PresentationControllerAnimator: ModalTransitionAnimator {
+open class PresentationControllerAnimator: ModalTransitionAnimator {
 
     private var finalFrame: CGRect
     private var shadowView = UIView()
     public var auxAnimation: ((Bool) -> Void)?
     public var onDismissed: (() -> Void)?
+    public var onPresented: (() -> Void)?
 
     // TODO: Add configuration.
     public init(finalFrame: CGRect) {
@@ -22,7 +24,7 @@ public class PresentationControllerAnimator: ModalTransitionAnimator {
         shadowView.alpha = 0.0
     }
     
-    public var duration: TimeInterval {
+    open var duration: TimeInterval {
         return 1.0
     }
     
